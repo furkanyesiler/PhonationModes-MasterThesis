@@ -1,0 +1,116 @@
+form Script...  
+  positive Minimum_F0 30
+  positive Maximum_F0 800
+  positive Formants 5
+  word Sound_file_extension .wav
+endform
+
+directory$ = "./"
+Create Strings as file list... list 'directory$'*'sound_file_extension$'
+numberOfFiles = Get number of strings
+
+for x from 1 to numberOfFiles
+     select Strings list
+     current_file$ = Get string... x
+     Read from file... 'directory$''current_file$'
+     object_name$ = selected$ ("Sound")
+endfor
+
+for ind to numberOfFiles
+
+  current_file = ind
+  select Strings list
+  fileName$ = Get string... current_file
+  name$ = fileName$ - ".wav" - ".WAV"
+  select Sound 'name$'
+
+  # You need this for the intensity
+  spectrogram = To Spectrogram: 0.005, 5000, 0.002, 20, "Gaussian"
+
+  select Sound 'name$'
+  formant = To Formant (burg): 0, formants, 5500, 0.025, 50
+
+  table = Down to Table: "no", "yes", 6, "yes", 3, "yes", 3, "yes"
+  Insert column: 1, "file"
+  # Insert columns for each formant intensity
+  # (labeled here as "I#", where # is the formant index)
+  for f to 3
+    index = Get column index: "F" + string$(f) + "(Hz)"
+    Insert column: index + 1, "I" + string$(f)
+    Set column label (label): "F" + string$(f) + "(Hz)" , "A" + string$(f) + "(Hz)" 
+  endfor
+
+  Set column label (label): "nformants", "NO_OF_FORMANTS"
+
+  for row to Object_'table'.nrow
+    selectObject: table
+    time = Object_'table'[row, "time(s)"]
+
+    # Get the intensity of each formant
+    for f to 3
+      frequency = Object_'table'[row, "A" + string$(f) + "(Hz)"]
+
+      selectObject: spectrogram
+      if frequency != undefined
+        intensity = Get power at: time, frequency
+      else
+        intensity = undefined
+      endif
+
+      selectObject: table
+      Set string value: row, "I" + string$(f), fixed$(intensity, 3)
+    endfor
+
+  endfor
+
+  selectObject: table
+  Remove column: "time(s)"
+  Remove column: "intensity"
+  Remove column: "F4(Hz)"
+  Remove column: "B4(Hz)"
+  Remove column: "F5(Hz)"
+  Remove column: "B5(Hz)"
+
+  selectObject: table
+  Down to TableOfReal...
+  n1 = Get column mean (index)... 2
+  f1 = Get column mean (index)... 3
+  i1 = Get column mean (index)... 4
+  b1 = Get column mean (index)... 5
+  f2 = Get column mean (index)... 6
+  i2 = Get column mean (index)... 7
+  b2 = Get column mean (index)... 8
+  f3 = Get column mean (index)... 9
+  i3 = Get column mean (index)... 10
+  b3 = Get column mean (index)... 11
+
+  rowN = Object_'table'.nrow - 1
+
+  for row to rowN
+    selectObject: table
+    Remove row... 1
+  endfor
+
+  for row to 1
+    selectObject: table
+    Set string value: row, "file", name$
+    Set string value: row, "NO_OF_FORMANTS", fixed$(n1, 3)
+    Set string value: row, "A1(Hz)", fixed$(f1, 3)
+    Set string value: row, "I1", fixed$(i1, 3)
+    Set string value: row, "B1(Hz)", fixed$(b1, 3)
+    Set string value: row, "A2(Hz)", fixed$(f2, 3)
+    Set string value: row, "I2", fixed$(i2, 3)
+    Set string value: row, "B2(Hz)", fixed$(b2, 3)
+    Set string value: row, "A3(Hz)", fixed$(f3, 3)
+    Set string value: row, "I3", fixed$(i3, 3)
+    Set string value: row, "B3(Hz)", fixed$(b3, 3)
+  endfor
+
+  removeObject: spectrogram, formant  
+endfor
+
+select Table 1
+for i to numberOfFiles
+  plus Table 'i'
+endfor
+Append

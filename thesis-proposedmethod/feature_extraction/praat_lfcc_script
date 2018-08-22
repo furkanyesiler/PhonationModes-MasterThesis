@@ -1,0 +1,107 @@
+form Script_lfcc...  
+  word Sound_file_extension .wav
+endform
+
+directory$ = "./"
+Create Strings as file list... list 'directory$'*'sound_file_extension$'
+numberOfFiles = Get number of strings
+
+for x from 1 to numberOfFiles
+     select Strings list
+     current_file$ = Get string... x
+     Read from file... 'directory$''current_file$'
+     object_name$ = selected$ ("Sound")
+endfor
+
+for ind to numberOfFiles
+
+  current_file = ind
+  select Strings list
+  fileName$ = Get string... current_file
+  name$ = fileName$ - ".wav" - ".WAV"  
+  Create Table with column names... 'name$' 1 file LFCC_1_MEAN LFCC_1_STD LFCC_2_MEAN LFCC_2_STD LFCC_3_MEAN LFCC_3_STD  LFCC_4_MEAN LFCC_4_STD  LFCC_5_MEAN LFCC_5_STD  LFCC_6_MEAN LFCC_6_STD  LFCC_7_MEAN LFCC_7_STD  LFCC_8_MEAN LFCC_8_STD  LFCC_9_MEAN LFCC_9_STD  LFCC_10_MEAN LFCC_10_STD  LFCC_11_MEAN LFCC_11_STD  LFCC_12_MEAN LFCC_12_STD  LFCC_13_MEAN LFCC_13_STD  LFCC_14_MEAN LFCC_14_STD  LFCC_15_MEAN LFCC_15_STD  LFCC_16_MEAN LFCC_16_STD 
+  select Sound 'name$'
+
+  To LPC (autocorrelation)...  16 0.025 0.01 50
+  To LFCC...  16  
+  To Matrix
+  Transpose
+  To TableOfReal
+
+  m1 = Get column mean (index)... 1
+  m2 = Get column mean (index)... 2
+  m3 = Get column mean (index)... 3
+  m4 = Get column mean (index)... 4
+  m5 = Get column mean (index)... 5
+  m6 = Get column mean (index)... 6
+  m7 = Get column mean (index)... 7
+  m8 = Get column mean (index)... 8
+  m9 = Get column mean (index)... 9
+  m10 = Get column mean (index)... 10
+  m11 = Get column mean (index)... 11
+  m12 = Get column mean (index)... 12
+  m13 = Get column mean (index)... 13
+  m14 = Get column mean (index)... 14
+  m15 = Get column mean (index)... 15
+  m16 = Get column mean (index)... 16
+
+  s1 = Get column stdev (index)... 1
+  s2 = Get column stdev (index)... 2
+  s3 = Get column stdev (index)... 3
+  s4 = Get column stdev (index)... 4
+  s5 = Get column stdev (index)... 5
+  s6 = Get column stdev (index)... 6
+  s7 = Get column stdev (index)... 7
+  s8 = Get column stdev (index)... 8
+  s9 = Get column stdev (index)... 9
+  s10 = Get column stdev (index)... 10
+  s11 = Get column stdev (index)... 11
+  s12 = Get column stdev (index)... 12
+  s13 = Get column stdev (index)... 13
+  s14 = Get column stdev (index)... 14
+  s15 = Get column stdev (index)... 15
+  s16 = Get column stdev (index)... 16
+
+  select Table 'name$'
+  Set string value: 1, "file", name$
+  Set string value: 1, "LFCC_1_MEAN", fixed$(m1, 3)
+  Set string value: 1, "LFCC_2_MEAN", fixed$(m2, 3)
+  Set string value: 1, "LFCC_3_MEAN", fixed$(m3, 3)
+  Set string value: 1, "LFCC_4_MEAN", fixed$(m4, 3)
+  Set string value: 1, "LFCC_5_MEAN", fixed$(m5, 3)
+  Set string value: 1, "LFCC_6_MEAN", fixed$(m6, 3)
+  Set string value: 1, "LFCC_7_MEAN", fixed$(m7, 3)
+  Set string value: 1, "LFCC_8_MEAN", fixed$(m8, 3)
+  Set string value: 1, "LFCC_9_MEAN", fixed$(m9, 3)
+  Set string value: 1, "LFCC_10_MEAN", fixed$(m10, 3)
+  Set string value: 1, "LFCC_11_MEAN", fixed$(m11, 3)
+  Set string value: 1, "LFCC_12_MEAN", fixed$(m12, 3)
+  Set string value: 1, "LFCC_13_MEAN", fixed$(m13, 3)
+  Set string value: 1, "LFCC_14_MEAN", fixed$(m14, 3)
+  Set string value: 1, "LFCC_15_MEAN", fixed$(m15, 3)
+  Set string value: 1, "LFCC_16_MEAN", fixed$(m16, 3)
+  Set string value: 1, "LFCC_1_STD", fixed$(s1, 3)
+  Set string value: 1, "LFCC_2_STD", fixed$(s2, 3)
+  Set string value: 1, "LFCC_3_STD", fixed$(s3, 3)
+  Set string value: 1, "LFCC_4_STD", fixed$(s4, 3)
+  Set string value: 1, "LFCC_5_STD", fixed$(s5, 3)
+  Set string value: 1, "LFCC_6_STD", fixed$(s6, 3)
+  Set string value: 1, "LFCC_7_STD", fixed$(s7, 3)
+  Set string value: 1, "LFCC_8_STD", fixed$(s8, 3)
+  Set string value: 1, "LFCC_9_STD", fixed$(s9, 3)
+  Set string value: 1, "LFCC_10_STD", fixed$(s10, 3)
+  Set string value: 1, "LFCC_11_STD", fixed$(s11, 3)
+  Set string value: 1, "LFCC_12_STD", fixed$(s12, 3)
+  Set string value: 1, "LFCC_13_STD", fixed$(s13, 3)
+  Set string value: 1, "LFCC_14_STD", fixed$(s14, 3)
+  Set string value: 1, "LFCC_15_STD", fixed$(s15, 3)
+  Set string value: 1, "LFCC_16_STD", fixed$(s16, 3)
+
+ endfor
+
+ select Table 1
+ for i to numberOfFiles
+    
+    plus Table 'i'
+ endfor
+ Append
