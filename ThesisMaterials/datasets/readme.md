@@ -24,4 +24,4 @@ DS-C is the combined dataset consisting recordings from DS-2, DS-3 and DS-4.
 
 ### Balanced Datasets
 
-For our experiments, we have created balanced versions of each dataset in terms of the number of recordings for each phonation mode. In [Balanced_Datasets.ods](https://github.com/furkanyesiler/PhonationModes/blob/master/thesis-proposedmethod/datasets/Balanced_Datasets.ods), we share the recordings we used for our experiments, and the recordings we left out while creating the balanced datasets.
+For our experiments, we have created balanced versions of each dataset in terms of the number of recordings for each phonation mode. In [Balanced_Datasets.ods](https://github.com/furkanyesiler/PhonationModes-MasterThesis/blob/master/ThesisMaterials/datasets/Balanced_Datasets.ods), we share the recordings we used for our experiments, and the recordings we left out while creating the balanced datasets.
