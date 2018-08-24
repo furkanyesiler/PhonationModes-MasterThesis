@@ -22,9 +22,9 @@ We can use the ARFF Toolbox of Weka in order to transform our ".csv" file into a
 
 ### 3-Feature Selection
 
-In our experiments, we use Correlation-based Feature Selection (CFS) algorithm that can be found in Weka. For more information of the feature selection step, you can check Section 2.3 of the thesis.
+In our experiments, we use Correlation-based Feature Selection (CFS) algorithm that can be found in Weka. For more information of the feature selection step, you can check Section 2.3.2 of the thesis.
 
 ### 4-Automatic Classification
 
-Automatic classification step of our experiments utilize a Multi-Layer Perceptron (MLP) model that can be found in Weka. For more information regarding hyperparameter values, you can check Section 2.3 of the thesis.
+Automatic classification step of our experiments utilize a Multi-Layer Perceptron (MLP) model that can be found in Weka. For more information regarding hyperparameter values, you can check Section 2.3.3 of the thesis.
 
