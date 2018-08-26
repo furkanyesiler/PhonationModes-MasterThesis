@@ -26,4 +26,4 @@ The Praat scripts required to extract the Formants Information (A1-I1-B1, A2-I2-
 
 This toolbox/script can be found [here](http://www.homepages.ucl.ac.uk/~uclyyix/ProsodyPro/)
 
-The modified version of this script for extracting various "BID" features is shared as [ProsodyPro_modified.praat](https://github.com/furkanyesiler/PhonationModes-MasterThesis/blob/master/ThesisMaterials/feature_extraction/ProsodyPro_modified.praat). In our experiments, we use the modified script on the entire recordings. We modified the labeling part of the script so that it only takes the middle 600 ms to extract the features.
+The modified version of this script for extracting various "BID" features is shared as [ProsodyPro_modified.praat](https://github.com/furkanyesiler/PhonationModes-MasterThesis/blob/master/ThesisMaterials/feature_extraction/ProsodyPro_modified.praat). In our experiments, we use the modified script on the entire recordings. We modified the labeling part of the script so that it only takes the middle 600 ms to extract the features. After the feature extraction, we exclude "Interval", "F_dispersion1_5" and "median_pitch" columns of the BID.txt file.
