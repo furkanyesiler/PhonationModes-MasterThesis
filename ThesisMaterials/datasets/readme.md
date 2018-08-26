@@ -1,6 +1,6 @@
 ## Datasets
 
-#### Our experiments use 4 individual datasets and a combined one. For more information regarding datasets, Section 2.1 of the thesis can be checked.
+#### Our experiments use 4 individual datasets and a combined one. More information regarding datasets can be found in Section 2.1 of the thesis.
 
 ### DS-1
 
