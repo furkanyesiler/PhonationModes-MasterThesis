@@ -12,13 +12,13 @@ After the feature extraction step, you can organize the obtained data in the fol
 * The last column for "Class" should be added.
 * Document must be saved as ".csv". 
 
-An example of the data organized in the described way can be found as XX.
+An example of the data organized in the described way can be found as [example_data.csv](https://github.com/furkanyesiler/PhonationModes-MasterThesis/blob/master/ThesisMaterials/automatic_classification/example_data.csv).
 
-After obtaining the data in a ".csv" file, we use python_file.py to create 10 pairs of training and test subsets in a stratified way regarding classes.
+After obtaining the data in a ".csv" file, we use [Training-and-Test-Subset-Creator.ipynb](https://github.com/furkanyesiler/PhonationModes-MasterThesis/blob/master/ThesisMaterials/automatic_classification/Training-and-Test-Subset-Creator.ipynb) to create 10 pairs of training and test subsets in a stratified way regarding classes.
 
 ### 2-Creating ".arff" files
 
-We can use the ARFF Toolbox of Weka in order to transform our ".csv" file into an ".arff" file.
+We can use the ARFF-Viewer of Weka in order to transform our ".csv" file into an ".arff" file.
 
 ### 3-Feature Selection
 
