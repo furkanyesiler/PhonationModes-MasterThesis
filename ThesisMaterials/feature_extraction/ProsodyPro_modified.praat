@@ -512,7 +512,7 @@ procedure Labeling file_name$ file_extension$
 		dur_test2 = (dur_test/2) + 0.3
 		Insert boundary... 1 dur_test1
 		Insert boundary... 1 dur_test2
-		Set interval text... 1 2 'dada'
+		Set interval text... 1 2 'interval1'
 	endif
 	plus Sound 'name$'
 	if task = 2
