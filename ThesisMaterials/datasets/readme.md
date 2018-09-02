@@ -1,6 +1,6 @@
 ## Datasets
 
-#### Our experiments use 4 individual datasets and a combined one. More information regarding datasets can be found in Section 2.1 of the thesis.
+Our experiments use 4 individual datasets and a combined one. More information regarding datasets can be found in Section 2.1 of the [thesis](https://github.com/furkanyesiler/PhonationModes-MasterThesis/blob/master/MasterThesis-FurkanYesiler.pdf).
 
 ### DS-1
 
