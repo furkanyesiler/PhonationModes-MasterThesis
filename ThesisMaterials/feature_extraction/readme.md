@@ -2,7 +2,7 @@
 
 Feature extraction part of our experiments is done by utilizing 4 different toolboxes. Here, we give the links for each toolbox and share the required scripts in order to extract the features from given audio files.
 
-Detailed information about the feature space used in our experiments can be found in Section 2.3 of the thesis. As mentioned in Subsection 2.3.1, we use the entire recordings for some features and the middle 600 ms for the others. For obtaining the trimmed versions of the recordings, a Matlab script shared as [matlab_trimming_script.m](https://github.com/furkanyesiler/PhonationModes-MasterThesis/blob/master/ThesisMaterials/feature_extraction/matlab_trimming_script.m) can be used. 
+Detailed information about the feature space used in our experiments can be found in Section 2.3 of the [thesis](https://github.com/furkanyesiler/PhonationModes-MasterThesis/blob/master/MasterThesis-FurkanYesiler.pdf). As mentioned in Subsection 2.3.1, we use the entire recordings for some features and the middle 600 ms for the others. For obtaining the trimmed versions of the recordings, a Matlab script shared as [matlab_trimming_script.m](https://github.com/furkanyesiler/PhonationModes-MasterThesis/blob/master/ThesisMaterials/feature_extraction/matlab_trimming_script.m) can be used. 
 
 ### RASTAMAT
 
